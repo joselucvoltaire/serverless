@@ -10,7 +10,7 @@ on:
 
 jobs:
   deployment:
-    runs-on: ubuntu-latest
     environment: production
     concurrency: production
-    uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@github_action
+    steps:
+    -  uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@github_action
