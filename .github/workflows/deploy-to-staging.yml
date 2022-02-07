@@ -13,3 +13,5 @@ jobs:
     with:
       environment: staging
       concurrency: staging
+    secrets:
+      ENV: ${{ secrets.ENV }}

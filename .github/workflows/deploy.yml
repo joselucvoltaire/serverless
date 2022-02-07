@@ -10,6 +10,9 @@ on:
       concurrency:
         required: true
         type: string
+    secrets:
+      ENV:
+        required: true
 
 jobs:
   deploy:
