@@ -1,0 +1,12 @@
+
+name: Test Feature
+
+on:
+  push:
+    branches: [ feature/* ]
+  pull_request:
+    branches: [ feature/* ]
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yml
