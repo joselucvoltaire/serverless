@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{inputs.environment}}
     concurrency: ${{inputs.concurrency}}
+    strategy:
+      matrix:
+        node-version: [12.x]
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -27,3 +30,5 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run deploy
+        env:
+          ENV: ${{ secrets.ENV }}
