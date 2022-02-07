@@ -1,0 +1,21 @@
+# Reusable deploy template
+
+name: Deploy template
+
+on:
+  workflow_call:
+
+jobs:
+  deployment:
+    name: deploy serverless functions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: deploy
+        uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm run deploy
