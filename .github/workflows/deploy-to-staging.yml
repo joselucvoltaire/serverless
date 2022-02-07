@@ -11,5 +11,4 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     environment: staging
     concurrency: staging
-    steps:
-      - uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@github_action
+    uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@github_action

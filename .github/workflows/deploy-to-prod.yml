@@ -12,5 +12,4 @@ jobs:
   deployment:
     environment: production
     concurrency: production
-    steps:
-    -  uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@github_action
+    uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@github_action
