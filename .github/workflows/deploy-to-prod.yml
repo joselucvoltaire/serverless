@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy-to-prod:
-    uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@github_action
+    uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@main
     with:
       environment: production
       concurrency: production
