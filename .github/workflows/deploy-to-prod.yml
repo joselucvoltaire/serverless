@@ -9,7 +9,8 @@ on:
     tags: 'v*'
 
 jobs:
-  deployment:
-    environment: production
-    concurrency: production
+  deploy-to-prod:
     uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@github_action
+    with:
+      environment: production
+      concurrency: production

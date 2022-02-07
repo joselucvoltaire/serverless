@@ -1,14 +1,22 @@
 # Reusable deploy template
-
 name: Deploy template
 
 on:
   workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      concurrency:
+        required: true
+        type: string
 
 jobs:
   deployment:
     name: deploy serverless functions
     runs-on: ubuntu-latest
+    environment: ${{inputs.environment}}
+    concurrency: ${{inputs.concurrency}}
     steps:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
