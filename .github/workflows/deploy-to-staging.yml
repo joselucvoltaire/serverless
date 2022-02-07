@@ -9,6 +9,6 @@ on:
 jobs:
   deploy-to-staging:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    uses: joselucvoltaire/serverless/.github/workflows/deploy.yml
+    uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@github_action
     environment: staging
     concurrency: staging

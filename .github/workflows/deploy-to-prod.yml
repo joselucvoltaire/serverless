@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     concurrency: production
-    uses: joselucvoltaire/serverless/.github/workflows/deploy.yml
+    uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@github_action

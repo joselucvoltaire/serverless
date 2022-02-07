@@ -9,4 +9,4 @@ on:
 
 jobs:
   test:
-    uses: joselucvoltaire/serverless/.github/workflows/test.yml
+    uses: joselucvoltaire/serverless/.github/workflows/test.yml@github_action
