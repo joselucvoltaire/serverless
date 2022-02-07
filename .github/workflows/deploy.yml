@@ -12,18 +12,18 @@ on:
         type: string
 
 jobs:
-  deployment:
+  deploy:
     name: deploy serverless functions
     runs-on: ubuntu-latest
     environment: ${{inputs.environment}}
     concurrency: ${{inputs.concurrency}}
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: deploy
-        uses: actions/checkout@v2
       - run: npm ci
       - run: npm run deploy
