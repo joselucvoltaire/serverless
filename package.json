@@ -10,7 +10,8 @@
     "jest": "^27.5.0"
   },
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "deploy": "echo \"run command to deploy to env $ENV\""
   },
   "repository": {
     "type": "git",
