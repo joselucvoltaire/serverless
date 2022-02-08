@@ -5,9 +5,8 @@
 name: Deploy to prod
 
 on:
-  push:
-    tags: ['v*']
-    branches: [main]
+  release:
+    types: [published]
 
 
 jobs:
@@ -15,5 +14,6 @@ jobs:
     uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@main
     with:
       concurrency: production
+      version: ${{ github.event.release.tag}}
     secrets:
       ENV: ${{ secrets.PRODUCTION_ENV }}

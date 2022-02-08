@@ -12,5 +12,6 @@ jobs:
     uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@main
     with:
       concurrency: staging
+      version: ${{ github.sha }}
     secrets:
       ENV: ${{ secrets.STAGING_ENV }}
