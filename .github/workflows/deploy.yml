@@ -24,11 +24,6 @@ jobs:
       matrix:
         node-version: [12.x]
     steps:
-      - shell: bash
-        env:
-          ENV: ${{ secrets.ENV }}
-        run: |
-          echo "current env: $ENV"
       - name: checkout
         uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -36,6 +31,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+      - run: |
+          node -e "console.log(\"ENV: \", process.env.ENV)"
+        env:
+          ENV: ${{ secrets.ENV }}
       - run: npm ci
       - run: npm run deploy
         env:

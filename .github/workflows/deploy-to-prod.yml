@@ -15,4 +15,4 @@ jobs:
       environment: production
       concurrency: production
     secrets:
-      ENV: ${{ secrets.ENV }}
+      ENV: ${{ secrets.PRODUCTION_ENV }}
