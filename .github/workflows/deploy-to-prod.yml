@@ -14,6 +14,6 @@ jobs:
     uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@main
     with:
       concurrency: production
-      version: ${{ github.event.release.tag}}
+      version: ${{ github.event.tag_name}}
     secrets:
       ENV: ${{ secrets.PRODUCTION_ENV }}
