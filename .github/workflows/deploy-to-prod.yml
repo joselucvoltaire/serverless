@@ -5,14 +5,15 @@
 name: Deploy to prod
 
 on:
-  create:
-    tags: 'v*'
+  push:
+    tags: ['v*']
+    branches: [main]
+
 
 jobs:
   deploy-to-prod:
     uses: joselucvoltaire/serverless/.github/workflows/deploy.yml@main
     with:
-      environment: production
       concurrency: production
     secrets:
       ENV: ${{ secrets.PRODUCTION_ENV }}
